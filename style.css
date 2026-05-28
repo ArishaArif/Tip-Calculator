@@ -1,0 +1,278 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background:#0f0f23;
+    color: white;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+
+}
+.container{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    padding:2.5rem;
+    width:100%;
+    max-width:450px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+.header{
+    text-align: center;
+    margin-bottom:2.5rem;
+
+}
+.header h1{
+    font-size:2.2rem;
+    color:#64ffda;
+    margin-bottom:0.5rem;
+    text-shadow: 0 0 20px rgba(100,255,218,0.3);
+
+}
+.header p{
+    font-size:1rem;
+}
+.input-section{
+    margin-bottom:2rem;
+}
+.input-group{
+    margin-bottom:1.5rem;
+}
+.input-group label{
+    display: flex;
+    align-items:center;
+    margin-bottom:0.8rem;
+    font-size:1rem;
+    color:#64ffda;
+    font-weight:600;
+}
+.input-group label .icon{
+    margin-right:0.5rem;
+    font-size:1.2rem;
+}
+.input-field{
+position:relative;
+}
+.input-field input{
+    width:100%;
+    padding: 1rem 1.2rem;
+    background: rgba(255,255,255,0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius:15px;
+    color:white;
+    font-size:1.1rem;
+    outline:none;
+    transition: all 0.3s ease;
+}
+.input-field input:focus{
+    border-color:#64ffda;
+    box-shadow: 0 0 15px rgba(100,255,218,0.3);
+    background:rgba(255,255,255,0.12);
+
+}
+.input-field .currency{
+    position:absolute;
+    left: 1.2rem;
+    top:50%;
+    transform:translateY(-50%);
+    color:#888;
+    pointer-events:none;
+    font-size:1.1rem;
+}
+.input-field input.with-currency{
+    padding-left:2.5rem;
+}
+.tip-buttons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0.8rem;
+    margin-bottom:1rem;
+}
+.tip-buttons{
+    margin-bottom: 1rem;
+}
+.tip-btn{
+    padding:0.8rem;
+    background:rgba(255,255,255,0.08);
+    border:2px solid rgba(255,255,255,0.3);
+    border-radius:12px;
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+.tip-btn:hover{
+    background:rgba(100,255,218,0.1);
+    border-color:#64ffda;
+    transform:translateY(-2px);
+}
+.tip-btn.active{
+    background:#64ffda;
+    color:#0f0f23;
+    border-color:#64ffda;
+    box-shadow:0 5px 15px rgba(100,255,218,0.3);
+}
+.people-selector{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.08);
+    border-radius:15px;
+    padding:1rem;
+    border:2px solid rgba(255,255,255,0.1);
+}
+.people-btn{
+    width:40px;
+    height:40px;
+    background: rgba(255,255,255,0.1);
+    border:none;
+    color:white;
+    font-size:1.2rem;
+    font-weight:bold;
+    cursor: pointer;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.people-btn:hover{
+    background:#64ffda;
+    color:#0f0f23;
+    transform:scale(1.1);
+}
+.people-count{
+    font-size:1.5 rem;
+    font-weight:bold;
+    color:#64ffda;
+    text-align:center;
+    min-width:60px;
+}
+.results{
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:2rem;
+    margin-top:2rem;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+.result-row{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding:1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.result-row:last-child{
+    border-bottom:none;
+    padding-bottom:0;
+}
+.result-label{
+    display: flex;
+    align-items: center;
+}
+.result-label.icon{
+    margin-right:0.5rem;
+    font-size:1.1rem;
+}
+.result-value{
+font-size:1.3rem;
+font-weight:bold;
+color:white
+}
+/* ── Paste these at the bottom of your style.css ── */
+
+/* Result value pop animation */
+@keyframes pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.12); color: #64ffda; }
+  100% { transform: scale(1); }
+}
+.result-value.updated {
+  animation: pop 0.25s ease;
+}
+
+/* Inline error messages */
+.error-msg {
+  display: block;
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  min-height: 1em;
+}
+
+/* Disabled decrease button */
+.people-btn:disabled,
+.people-btn[aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Custom tip input (outside .input-field, so needs own styles) */
+#customTip {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+#customTip:focus {
+  border-color: #64ffda;
+  box-shadow: 0 0 15px rgba(100,255,218,0.3);
+}
+#customTip::placeholder { color: rgba(255,255,255,0.35); }
+
+/* People count sizing fix */
+.people-count {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #64ffda;
+  text-align: center;
+  min-width: 60px;
+}
+
+/* Highlight total */
+.result-value.highlight {
+  color: #64ffda;
+  font-size: 1.5rem;
+}
+
+/* Reset button */
+#resetBtn {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 107, 107, 0.12);
+  border: 2px solid rgba(255, 107, 107, 0.4);
+  border-radius: 15px;
+  color: #ff6b6b;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+#resetBtn:hover {
+  background: rgba(255, 107, 107, 0.25);
+  border-color: #ff6b6b;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .container { padding: 1.5rem; border-radius: 18px; }
+  .header h1 { font-size: 1.6rem; }
+  .tip-buttons { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+}
